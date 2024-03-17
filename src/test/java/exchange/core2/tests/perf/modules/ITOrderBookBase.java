@@ -20,7 +20,6 @@ import exchange.core2.core.common.cmd.CommandResultCode;
 import exchange.core2.core.common.cmd.OrderCommand;
 import exchange.core2.core.orderbook.IOrderBook;
 import exchange.core2.tests.util.TestOrdersGenerator;
-import jdk.nashorn.internal.ir.annotations.Ignore;
 import lombok.extern.slf4j.Slf4j;
 import net.openhft.affinity.AffinityLock;
 import org.junit.jupiter.api.AfterEach;
@@ -167,53 +166,53 @@ public abstract class ITOrderBookBase {
 //        assertThat(event.size, is(size));
 //        // TODO add more checks for MatcherTradeEvent
 //    }
-
-    @Ignore
-    @Test
-    public void testNano() throws InterruptedException {
-        long baseTime = System.currentTimeMillis() * 1_000_000 - System.nanoTime();
-        long baseNano = System.nanoTime();
-        long baseMillis = System.currentTimeMillis();
-        int iterations = 5_000_000;
-        long[] data = new long[iterations];
-        for (int i = 0; i < iterations; i++) {
-            //Thread.sleep(0, 1000);
-            data[i] = System.nanoTime() + baseTime;
-
-            log.debug("{}  {}ms {}ns {}", data[i], System.currentTimeMillis() - baseMillis, System.nanoTime() - baseNano, Instant.now());
-
-        }
-        log.debug("time: {}ns", System.nanoTime() + baseTime);
-
-//        for (int i = iterations - 1; i >= 0; i--) {
+// TODO uncomment it
+////    @Ignore
+//    @Test
+//    public void testNano() throws InterruptedException {
+//        long baseTime = System.currentTimeMillis() * 1_000_000 - System.nanoTime();
+//        long baseNano = System.nanoTime();
+//        long baseMillis = System.currentTimeMillis();
+//        int iterations = 5_000_000;
+//        long[] data = new long[iterations];
+//        for (int i = 0; i < iterations; i++) {
+//            //Thread.sleep(0, 1000);
+//            data[i] = System.nanoTime() + baseTime;
+//
+//            log.debug("{}  {}ms {}ns {}", data[i], System.currentTimeMillis() - baseMillis, System.nanoTime() - baseNano, Instant.now());
+//
+//        }
+//        log.debug("time: {}ns", System.nanoTime() + baseTime);
+//
+////        for (int i = iterations - 1; i >= 0; i--) {
+////            log.debug("{}", data[i]);
+////        }
+//
+//    }
+//
+//
+////    @Ignore
+//    @Test
+//    public void testNano2() throws InterruptedException {
+//        long baseTime = System.currentTimeMillis() * 1_000_000 - System.nanoTime();
+//        long baseNano = System.nanoTime();
+//        long baseMillis = System.currentTimeMillis();
+//        int iterations = 5_000_000;
+//        long[] data = new long[iterations];
+//        for (int i = 0; i < iterations; i++) {
+//            //Thread.sleep(0, 1000);
+//            data[i] = System.nanoTime() + baseTime;
+//
+//            //log.debug("{}  {}ms {}ns {}", data[i], System.currentTimeMillis() -  baseMillis, System.nanoTime() - baseNano, Instant.now() );
+//
+//        }
+//        log.debug("time: {}ns", System.nanoTime() + baseTime);
+//
+//        for (int i = iterations - 1; i >= iterations - 1000; i--) {
 //            log.debug("{}", data[i]);
 //        }
-
-    }
-
-
-    @Ignore
-    @Test
-    public void testNano2() throws InterruptedException {
-        long baseTime = System.currentTimeMillis() * 1_000_000 - System.nanoTime();
-        long baseNano = System.nanoTime();
-        long baseMillis = System.currentTimeMillis();
-        int iterations = 5_000_000;
-        long[] data = new long[iterations];
-        for (int i = 0; i < iterations; i++) {
-            //Thread.sleep(0, 1000);
-            data[i] = System.nanoTime() + baseTime;
-
-            //log.debug("{}  {}ms {}ns {}", data[i], System.currentTimeMillis() -  baseMillis, System.nanoTime() - baseNano, Instant.now() );
-
-        }
-        log.debug("time: {}ns", System.nanoTime() + baseTime);
-
-        for (int i = iterations - 1; i >= iterations - 1000; i--) {
-            log.debug("{}", data[i]);
-        }
-
-    }
+//
+//    }
 
 
 }
