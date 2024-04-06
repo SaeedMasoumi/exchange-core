@@ -1,5 +1,6 @@
 # exchange-core
 ![Build Status](https://github.com/SaeedMasoumi/exchange-core/actions/workflows/java-build.yml/badge.svg)
+![Build Status](https://github.com/SaeedMasoumi/exchange-core/actions/workflows/pref-test.yml/badge.svg)
 [![][license img]][license]
 
 **_This project is a Java 11 port of exchange-core._**
