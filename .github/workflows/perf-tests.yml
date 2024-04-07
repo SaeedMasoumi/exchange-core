@@ -14,6 +14,12 @@ jobs:
         with:
           java-version: '11'
           distribution: 'zulu'
+      - uses: actions/cache@v4
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
       - name: Run latency test
         run: mvn -Dtest=PerfLatency#testLatencyMargin test
 
@@ -28,6 +34,12 @@ jobs:
         with:
           java-version: '11'
           distribution: 'zulu'
+      - uses: actions/cache@v4
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
       - name: Run serialization test
         run: mvn -Dtest=PerfPersistence#testPersistenceMargin test
 
@@ -42,5 +54,11 @@ jobs:
         with:
           java-version: '11'
           distribution: 'zulu'
+      - uses: actions/cache@v4
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
       - name: Run throughput test
         run: mvn -Dtest=PerfThroughput#testThroughputMargin test
